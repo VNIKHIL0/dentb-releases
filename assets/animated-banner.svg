@@ -120,7 +120,7 @@
     <!-- Eyebrow Badge -->
     <rect x="210" y="52" width="220" height="26" rx="13" fill="#1e293b" stroke="#334155" />
     <circle class="status-dot-pulse" cx="224" cy="65" r="4.5" fill="#10b981" />
-    <text x="236" y="69" font-size="11.5" font-weight="600" fill="#94a3b8" letter-spacing="0.8">OFFICIAL RELEASES &bull; v1.0.0</text>
+    <text x="236" y="69" font-size="11.5" font-weight="600" fill="#94a3b8" letter-spacing="0.8">OFFICIAL RELEASES &#8226; v1.0.0</text>
 
     <!-- Main Title -->
     <text x="210" y="118" font-size="44" font-weight="800" fill="#f8fafc" letter-spacing="-0.8">
@@ -152,7 +152,7 @@
     <!-- Bottom Status Strip -->
     <g transform="translate(210, 248)">
       <text x="0" y="16" font-size="12" font-weight="500" fill="#64748b">
-        Direct high-speed CDN delivery &bull; Zero telemetry tracking &bull; Cryptographically signed binaries
+        Direct high-speed CDN delivery &#8226; Zero telemetry tracking &#8226; Cryptographically signed binaries
       </text>
     </g>
   </g>
