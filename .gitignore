@@ -1,0 +1,7 @@
+# Ignore binaries from git commits (they are attached to GitHub Releases)
+*.apk
+*.zip
+*.tar.gz
+*.exe
+.DS_Store
+Thumbs.db

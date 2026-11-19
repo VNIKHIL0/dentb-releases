@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 200" width="100%" height="auto">
+  <defs>
+    <linearGradient id="bgGradArch" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1120" />
+      <stop offset="100%" stop-color="#030712" />
+    </linearGradient>
+    <linearGradient id="blueGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#818cf8" />
+    </linearGradient>
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <style>
+    @keyframes flowLine {
+      0% { stroke-dashoffset: 100; }
+      100% { stroke-dashoffset: 0; }
+    }
+    @keyframes pulseCard {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+    .flow-path {
+      stroke-dasharray: 8 6;
+      animation: flowLine 3s linear infinite;
+    }
+    .p-card-1 { animation: pulseCard 4s ease-in-out infinite 0.0s; }
+    .p-card-2 { animation: pulseCard 4s ease-in-out infinite 0.8s; }
+    .p-card-3 { animation: pulseCard 4s ease-in-out infinite 1.6s; }
+    .p-card-4 { animation: pulseCard 4s ease-in-out infinite 2.4s; }
+    .p-card-5 { animation: pulseCard 4s ease-in-out infinite 3.2s; }
+    .arch-text {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+  </style>
+
+  <rect width="960" height="200" rx="14" fill="url(#bgGradArch)" stroke="#1e293b" stroke-width="1.2" />
+
+  <!-- Animated connecting bus line -->
+  <line class="flow-path" x1="100" y1="100" x2="860" y2="100" stroke="#38bdf8" stroke-width="2" opacity="0.6" />
+
+  <!-- 5 Engine Node Cards -->
+  <!-- 1. Dashboard -->
+  <g class="p-card-1 arch-text" transform="translate(40, 45)">
+    <rect width="150" height="110" rx="12" fill="#0f172a" stroke="#38bdf8" stroke-width="1.4" filter="url(#cardShadow)" />
+    <circle cx="75" cy="35" r="16" fill="#1e293b" />
+    <text x="75" y="40" text-anchor="middle" font-size="14" fill="#38bdf8">⚡</text>
+    <text x="75" y="72" text-anchor="middle" font-size="13" font-weight="700" fill="#f8fafc">Dashboard</text>
+    <text x="75" y="90" text-anchor="middle" font-size="10.5" fill="#94a3b8">Live Chairside Queue</text>
+  </g>
+
+  <!-- 2. Patients -->
+  <g class="p-card-2 arch-text" transform="translate(225, 45)">
+    <rect width="150" height="110" rx="12" fill="#0f172a" stroke="#34d399" stroke-width="1.4" filter="url(#cardShadow)" />
+    <circle cx="75" cy="35" r="16" fill="#1e293b" />
+    <text x="75" y="40" text-anchor="middle" font-size="14" fill="#34d399">👥</text>
+    <text x="75" y="72" text-anchor="middle" font-size="13" font-weight="700" fill="#f8fafc">Patient Vault</text>
+    <text x="75" y="90" text-anchor="middle" font-size="10.5" fill="#94a3b8">Zero Paperwork Records</text>
+  </g>
+
+  <!-- 3. Schedule -->
+  <g class="p-card-3 arch-text" transform="translate(410, 45)">
+    <rect width="150" height="110" rx="12" fill="#0f172a" stroke="#818cf8" stroke-width="1.4" filter="url(#cardShadow)" />
+    <circle cx="75" cy="35" r="16" fill="#1e293b" />
+    <text x="75" y="40" text-anchor="middle" font-size="14" fill="#818cf8">📅</text>
+    <text x="75" y="72" text-anchor="middle" font-size="13" font-weight="700" fill="#f8fafc">Operatory Matrix</text>
+    <text x="75" y="90" text-anchor="middle" font-size="10.5" fill="#94a3b8">Multi-Doctor Chairs</text>
+  </g>
+
+  <!-- 4. Billing -->
+  <g class="p-card-4 arch-text" transform="translate(595, 45)">
+    <rect width="150" height="110" rx="12" fill="#0f172a" stroke="#f59e0b" stroke-width="1.4" filter="url(#cardShadow)" />
+    <circle cx="75" cy="35" r="16" fill="#1e293b" />
+    <text x="75" y="40" text-anchor="middle" font-size="14" fill="#f59e0b">🧾</text>
+    <text x="75" y="72" text-anchor="middle" font-size="13" font-weight="700" fill="#f8fafc">Clinical Invoicing</text>
+    <text x="75" y="90" text-anchor="middle" font-size="10.5" fill="#94a3b8">Tooth-by-Tooth Ledger</text>
+  </g>
+
+  <!-- 5. Automations -->
+  <g class="p-card-5 arch-text" transform="translate(780, 45)">
+    <rect width="150" height="110" rx="12" fill="#0f172a" stroke="#ec4899" stroke-width="1.4" filter="url(#cardShadow)" />
+    <circle cx="75" cy="35" r="16" fill="#1e293b" />
+    <text x="75" y="40" text-anchor="middle" font-size="14" fill="#ec4899">💬</text>
+    <text x="75" y="72" text-anchor="middle" font-size="13" font-weight="700" fill="#f8fafc">Automations</text>
+    <text x="75" y="90" text-anchor="middle" font-size="10.5" fill="#94a3b8">WhatsApp Cloud Recalls</text>
+  </g>
+</svg>

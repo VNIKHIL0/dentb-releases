@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" width="100%" height="auto">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0e17" />
+      <stop offset="40%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#070b12" />
+    </linearGradient>
+
+    <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#34d399" />
+    </linearGradient>
+
+    <linearGradient id="glowGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0" />
+    </linearGradient>
+
+    <linearGradient id="glowGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#34d399" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#34d399" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Card Background Gradient -->
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.75" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.85" />
+    </linearGradient>
+
+    <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    @keyframes pulseOrb {
+      0%, 100% { opacity: 0.35; transform: scale(1); }
+      50% { opacity: 0.65; transform: scale(1.12); }
+    }
+    @keyframes floatTooth {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-7px) rotate(2deg); }
+    }
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; r: 4.5px; }
+      50% { opacity: 0.4; r: 6px; }
+    }
+    @keyframes shimmer {
+      0% { stop-color: #38bdf8; }
+      50% { stop-color: #a78bfa; }
+      100% { stop-color: #34d399; }
+    }
+    .orb-1 {
+      animation: pulseOrb 6s ease-in-out infinite alternate;
+      transform-origin: 200px 100px;
+    }
+    .orb-2 {
+      animation: pulseOrb 8s ease-in-out infinite alternate-reverse;
+      transform-origin: 750px 200px;
+    }
+    .floating-logo {
+      animation: floatTooth 4s ease-in-out infinite;
+      transform-origin: 120px 140px;
+    }
+    .status-dot-pulse {
+      animation: pulseDot 2s infinite ease-in-out;
+    }
+    .banner-text {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+  </style>
+
+  <!-- Deep High-Tech Canvas -->
+  <rect width="960" height="320" rx="16" fill="url(#bgGrad)" stroke="#334155" stroke-width="1.5" />
+
+  <!-- Spatial Radial Glow Orbs -->
+  <circle class="orb-1" cx="200" cy="100" r="140" fill="url(#glowGrad1)" />
+  <circle class="orb-2" cx="750" cy="200" r="160" fill="url(#glowGrad2)" />
+
+  <!-- Modern Grid Backdrop -->
+  <g opacity="0.12" stroke="#94a3b8" stroke-width="0.8">
+    <line x1="0" y1="40" x2="960" y2="40" />
+    <line x1="0" y1="80" x2="960" y2="80" />
+    <line x1="0" y1="120" x2="960" y2="120" />
+    <line x1="0" y1="160" x2="960" y2="160" />
+    <line x1="0" y1="200" x2="960" y2="200" />
+    <line x1="0" y1="240" x2="960" y2="240" />
+    <line x1="0" y1="280" x2="960" y2="280" />
+    <line x1="80" y1="0" x2="80" y2="320" />
+    <line x1="160" y1="0" x2="160" y2="320" />
+    <line x1="240" y1="0" x2="240" y2="320" />
+    <line x1="320" y1="0" x2="320" y2="320" />
+    <line x1="400" y1="0" x2="400" y2="320" />
+    <line x1="480" y1="0" x2="480" y2="320" />
+    <line x1="560" y1="0" x2="560" y2="320" />
+    <line x1="640" y1="0" x2="640" y2="320" />
+    <line x1="720" y1="0" x2="720" y2="320" />
+    <line x1="800" y1="0" x2="800" y2="320" />
+    <line x1="880" y1="0" x2="880" y2="320" />
+  </g>
+
+  <!-- Left: Animated Logo Emblem -->
+  <g class="floating-logo">
+    <!-- Emblem Glow Backdrop -->
+    <rect x="68" y="80" width="108" height="108" rx="28" fill="#1e293b" stroke="#38bdf8" stroke-width="1.8" filter="url(#neonGlow)" opacity="0.85" />
+    <!-- Stylized Tooth Path -->
+    <path d="M122 104 C106 104 98 114 98 126 C98 138 102 148 106 160 C108 166 112 176 114 176 C116 176 118 168 122 152 C126 168 128 176 130 176 C132 176 136 166 138 160 C142 148 146 138 146 126 C146 114 138 104 122 104 Z" fill="url(#brandGrad)" />
+    <!-- Medical Cross Sparkle Accent -->
+    <circle cx="122" cy="122" r="3.5" fill="#ffffff" />
+  </g>
+
+  <!-- Center Typography & Branding -->
+  <g class="banner-text">
+    <!-- Eyebrow Badge -->
+    <rect x="210" y="52" width="220" height="26" rx="13" fill="#1e293b" stroke="#334155" />
+    <circle class="status-dot-pulse" cx="224" cy="65" r="4.5" fill="#10b981" />
+    <text x="236" y="69" font-size="11.5" font-weight="600" fill="#94a3b8" letter-spacing="0.8">OFFICIAL RELEASES &bull; v1.0.0</text>
+
+    <!-- Main Title -->
+    <text x="210" y="118" font-size="44" font-weight="800" fill="#f8fafc" letter-spacing="-0.8">
+      DentB <tspan fill="url(#brandGrad)">Release Hub</tspan>
+    </text>
+
+    <!-- Subtitle -->
+    <text x="210" y="152" font-size="15" font-weight="400" fill="#94a3b8">
+      Production-Ready Dental Practice Operating System for PC &amp; Android
+    </text>
+
+    <!-- Key Metrics / Feature Badges -->
+    <g transform="translate(210, 184)">
+      <!-- Badge 1: Windows -->
+      <rect x="0" y="0" width="168" height="36" rx="10" fill="url(#cardGrad)" stroke="#38bdf8" stroke-width="1.2" />
+      <text x="14" y="23" font-size="12.5" font-weight="600" fill="#38bdf8">Windows 10/11 x64</text>
+      <text x="135" y="23" font-size="11" font-weight="500" fill="#64748b">ZIP</text>
+
+      <!-- Badge 2: Android -->
+      <rect x="180" y="0" width="176" height="36" rx="10" fill="url(#cardGrad)" stroke="#34d399" stroke-width="1.2" />
+      <text x="194" y="23" font-size="12.5" font-weight="600" fill="#34d399">Android 8.0+ Mobile</text>
+      <text x="325" y="23" font-size="11" font-weight="500" fill="#64748b">APK</text>
+
+      <!-- Badge 3: Security & Offline -->
+      <rect x="368" y="0" width="186" height="36" rx="10" fill="url(#cardGrad)" stroke="#818cf8" stroke-width="1.2" />
+      <text x="382" y="23" font-size="12.5" font-weight="600" fill="#818cf8">HIPAA &amp; SQLite Offline</text>
+    </g>
+
+    <!-- Bottom Status Strip -->
+    <g transform="translate(210, 248)">
+      <text x="0" y="16" font-size="12" font-weight="500" fill="#64748b">
+        Direct high-speed CDN delivery &bull; Zero telemetry tracking &bull; Cryptographically signed binaries
+      </text>
+    </g>
+  </g>
+</svg>
