@@ -12,7 +12,8 @@ YELLOW='\033[1;33m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color
 
-clear
+# clear screen only if interactive terminal
+[ -t 1 ] && clear 2>/dev/null || true
 echo -e "${CYAN}${BOLD}"
 echo "  ================================================================"
 echo "    🦷 DentB Autonomous WhatsApp Gateway &bull; Google Cloud GCE"
