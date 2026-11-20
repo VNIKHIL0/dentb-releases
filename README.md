@@ -47,7 +47,7 @@
 DentB orchestrates your entire dental practice across desktop operatory computers and chairside tablets in real time:
 
 <p align="center">
-  <img src="assets/animated-architecture.svg" alt="DentB Unified Practice Engines" width="100%" />
+  <img src="assets/architecture-diagram.png" alt="DentB Unified Practice Engines" width="100%" style="border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.3);" />
 </p>
 
 ### 📸 Product Interface Showcase
