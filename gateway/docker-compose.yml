@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  dentb-gateway:
+    build: .
+    container_name: dentb-whatsapp-gateway
+    restart: unless-stopped
+    ports:
+      - "5055:5055"
+      - "80:5055"
+    volumes:
+      - ./auth_session:/app/auth_session
+    environment:
+      - PORT=5055
+      - NODE_ENV=production
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:5055/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
