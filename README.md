@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/VNIKHIL0/dentb-releases/releases/latest"><img src="https://img.shields.io/badge/Release-v1.0.0%20Stable-10b981?style=for-the-badge&logo=github&logoColor=white" alt="Release"></a>
+  <a href="https://github.com/VNIKHIL0/dentb-releases/releases/latest"><img src="https://img.shields.io/badge/Release-v1.1.0%20Stable-10b981?style=for-the-badge&logo=github&logoColor=white" alt="Release"></a>
   <a href="#-android-installation"><img src="https://img.shields.io/badge/Android-8.0%2B%20(Direct%20APK)-34d399?style=for-the-badge&logo=android&logoColor=white" alt="Android"></a>
   <a href="#-windows-installation"><img src="https://img.shields.io/badge/Windows-10%20%2F%2011%20(x64%20ZIP)-0ea5e9?style=for-the-badge&logo=windows&logoColor=white" alt="Windows"></a>
   <img src="https://img.shields.io/badge/Security-HIPAA%20%26%20DPDP-818cf8?style=for-the-badge&logo=shield&logoColor=white" alt="Security">
@@ -13,12 +13,12 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/VNIKHIL0/dentb-releases/releases/download/v1.0.0/DentB-Android-v1.0.0.apk">
-    <img src="https://img.shields.io/badge/⬇️%20Download%20APK%20(91.5%20MB)-Android%20Mobile%20%26%20Tablet-2e7d32?style=for-the-badge&logo=android&logoColor=white" height="42">
+  <a href="https://github.com/VNIKHIL0/dentb-releases/releases/download/v1.1.0/DentB-Android-v1.1.0.apk">
+    <img src="https://img.shields.io/badge/⬇️%20Download%20APK%20(88.0%20MB)-Android%20Mobile%20%26%20Tablet-2e7d32?style=for-the-badge&logo=android&logoColor=white" height="42">
   </a>
   &nbsp;&nbsp;
-  <a href="https://github.com/VNIKHIL0/dentb-releases/releases/download/v1.0.0/DentB-Windows-x64.zip">
-    <img src="https://img.shields.io/badge/⬇️%20Download%20ZIP%20(30.1%20MB)-Windows%2010%20%2F%2011%20(x64)-0284c7?style=for-the-badge&logo=windows&logoColor=white" height="42">
+  <a href="https://github.com/VNIKHIL0/dentb-releases/releases/download/v1.1.0/DentB-Windows-x64.zip">
+    <img src="https://img.shields.io/badge/⬇️%20Download%20ZIP%20(32.7%20MB)-Windows%2010%20%2F%2011%20(x64)-0284c7?style=for-the-badge&logo=windows&logoColor=white" height="42">
   </a>
   &nbsp;&nbsp;
   <a href="https://dentb-landingpage.vnikhilpatil.workers.dev" target="_blank" rel="noopener noreferrer">
@@ -35,10 +35,10 @@
 
 | Platform | Target Architecture | Package Type | Package Size | 1-Click Direct Download | Security Check |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Android** | `arm64-v8a`, `armeabi-v7a`, `x86_64` | Standalone `.apk` | **91.5 MB** | [⬇️ **Download APK (Direct)**](https://github.com/VNIKHIL0/dentb-releases/releases/download/v1.0.0/DentB-Android-v1.0.0.apk) | [Verified SHA-256](#-package-integrity--checksums) |
-| **Windows** | `x86_64` (64-bit Windows 10/11) | Portable `.zip` (`DentB.exe`) | **30.1 MB** | [⬇️ **Download ZIP (Direct)**](https://github.com/VNIKHIL0/dentb-releases/releases/download/v1.0.0/DentB-Windows-x64.zip) | [Verified SHA-256](#-package-integrity--checksums) |
+| **Android** | `arm64-v8a`, `armeabi-v7a`, `x86_64` | Standalone `.apk` | **88.0 MB** | [⬇️ **Download APK (Direct)**](https://github.com/VNIKHIL0/dentb-releases/releases/download/v1.1.0/DentB-Android-v1.1.0.apk) | [Verified SHA-256](#-package-integrity--checksums) |
+| **Windows** | `x86_64` (64-bit Windows 10/11) | Portable `.zip` (`DentB.exe`) | **32.7 MB** | [⬇️ **Download ZIP (Direct)**](https://github.com/VNIKHIL0/dentb-releases/releases/download/v1.1.0/DentB-Windows-x64.zip) | [Verified SHA-256](#-package-integrity--checksums) |
 
-👉 **Release Hub on GitHub:** [**DentB Production Release v1.0.0**](https://github.com/VNIKHIL0/dentb-releases/releases/tag/v1.0.0)
+👉 **Release Hub on GitHub:** [**DentB Production Release v1.1.0**](https://github.com/VNIKHIL0/dentb-releases/releases/tag/v1.1.0)
 
 ---
 
@@ -135,8 +135,8 @@ DentB orchestrates your entire dental practice across desktop operatory computer
 
 <br>
 
-1. **Download APK:** Tap **[Download APK](https://github.com/VNIKHIL0/dentb-releases/releases/download/v1.0.0/DentB-Android-v1.0.0.apk)** directly on your Android phone or clinical tablet.
-2. **Open Downloads:** Open your browser's **Downloads** or notification drawer and tap **`DentB-Android-v1.0.0.apk`**.
+1. **Download APK:** Tap **[Download APK](https://github.com/VNIKHIL0/dentb-releases/releases/download/v1.1.0/DentB-Android-v1.1.0.apk)** directly on your Android phone or clinical tablet.
+2. **Open Downloads:** Open your browser's **Downloads** or notification drawer and tap **`DentB-Android-v1.1.0.apk`**.
 3. **Allow Installation:** If prompted by Android Security, tap **Settings** &rarr; toggle on **Allow from this source**.
 4. **Complete Setup:** Tap **Install** &rarr; **Open** to launch DentB!
 </details>
@@ -146,7 +146,7 @@ DentB orchestrates your entire dental practice across desktop operatory computer
 
 <br>
 
-1. **Download Archive:** Click **[Download ZIP](https://github.com/VNIKHIL0/dentb-releases/releases/download/v1.0.0/DentB-Windows-x64.zip)** on your Windows PC.
+1. **Download Archive:** Click **[Download ZIP](https://github.com/VNIKHIL0/dentb-releases/releases/download/v1.1.0/DentB-Windows-x64.zip)** on your Windows PC.
 2. **Extract Files:** Right-click **`DentB-Windows-x64.zip`** &rarr; select **Extract All...** to your desired folder (e.g., `C:\DentB` or `Desktop\DentB`).
 3. **Launch Application:** Double-click **`DentB.exe`** inside the extracted folder.
 4. *(Optional)* Right-click `DentB.exe` &rarr; **Pin to Taskbar** for instant 1-click chairside access.
@@ -165,20 +165,20 @@ Verify that your downloaded binary has not been tampered with:
 
 ```powershell
 # PowerShell verification on Windows
-Get-FileHash -Path .\DentB-Android-v1.0.0.apk -Algorithm SHA256
+Get-FileHash -Path .\DentB-Android-v1.1.0.apk -Algorithm SHA256
 Get-FileHash -Path .\DentB-Windows-x64.zip -Algorithm SHA256
 ```
 
 ```bash
 # Linux / macOS / Android Terminal
-sha256sum DentB-Android-v1.0.0.apk
+sha256sum DentB-Android-v1.1.0.apk
 sha256sum DentB-Windows-x64.zip
 ```
 
 | Package | SHA-256 Checksum |
 | :--- | :--- |
-| **`DentB-Android-v1.0.0.apk`** | `2C442D4CE75B531084740E8B274BAEA4898AEA2EEC9D469FC5A5167909BE4F34` |
-| **`DentB-Windows-x64.zip`** | `F8DF7C158BF2F3F66064559EC5EEDD0E1C05694415D6B0CBFA708FE4B5E32D28` |
+| **`DentB-Android-v1.1.0.apk`** | `AF47C90FCF3B291F3941AC830F7D1CBA3AFF4F4CED21E40D1232C867716491D4` |
+| **`DentB-Windows-x64.zip`** | `F56EE8842C82537C3BE2E334B8D75319636A35436F3B8FCABA7B91C6A74B9A94` |
 
 </details>
 
