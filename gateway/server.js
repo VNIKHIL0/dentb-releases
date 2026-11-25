@@ -7,7 +7,8 @@ const path = require('path');
 const {
   default: makeWASocket,
   useMultiFileAuthState,
-  DisconnectReason
+  DisconnectReason,
+  makeCacheableSignalKeyStore
 } = require('@whiskeysockets/baileys');
 
 const PORT = process.env.PORT || 5055;
@@ -54,9 +55,39 @@ function logActivity(type, recipient, message, status, error = null) {
   return entry;
 }
 
-// Cache of sent messages for End-to-End Encryption (E2EE) session key retry handshake
+// Persistent cache of sent messages for End-to-End Encryption (E2EE) session key retry handshake
 // Resolves WhatsApp's "Waiting for this message. This may take a while."
-const sentMessagesCache = new Map();
+const CACHE_FILE = path.join(AUTH_DIR, 'sent_messages_cache.json');
+let sentMessagesCache = new Map();
+
+function loadCacheFromDisk() {
+  try {
+    if (fs.existsSync(CACHE_FILE)) {
+      const data = JSON.parse(fs.readFileSync(CACHE_FILE, 'utf8'));
+      sentMessagesCache = new Map(Object.entries(data));
+      console.log(`DentB Gateway: Restored ${sentMessagesCache.size} messages in E2EE Signal retry cache.`);
+    }
+  } catch (err) {
+    console.warn('DentB Gateway: Notice loading sent cache:', err.message);
+  }
+}
+
+function saveCacheToDisk() {
+  try {
+    const obj = Object.fromEntries(sentMessagesCache);
+    fs.writeFileSync(CACHE_FILE, JSON.stringify(obj), 'utf8');
+  } catch (_) {}
+}
+
+function cacheSentMessage(id, messagePayload) {
+  if (!id) return;
+  sentMessagesCache.set(id, messagePayload);
+  if (sentMessagesCache.size > 1000) {
+    const oldestKey = sentMessagesCache.keys().next().value;
+    sentMessagesCache.delete(oldestKey);
+  }
+  saveCacheToDisk();
+}
 
 function sanitizeJid(phone) {
   let cleaned = String(phone).replace(/[^0-9]/g, '');
@@ -92,18 +123,25 @@ async function processMessageQueue() {
     try {
       const jid = sanitizeJid(item.phone);
       const messageText = String(item.message).trim();
-      const sent = await sock.sendMessage(jid, { text: messageText });
+
+      // Resolve contact & pre-warm Signal session keys via WhatsApp USync
+      let targetJid = jid;
+      try {
+        const [contact] = await sock.onWhatsApp(jid);
+        if (contact?.exists && contact?.jid) {
+          targetJid = contact.jid;
+        }
+      } catch (_) {
+        // Fall back to sanitized JID if USync lookup times out
+      }
+
+      const sent = await sock.sendMessage(targetJid, { text: messageText });
       lastDispatchedTimestamp = Date.now();
       totalMessagesProcessed++;
 
-      // Cache message for E2EE Signal protocol retry handshake (prevents "Waiting for this message")
+      // Cache exact proto.IMessage for E2EE Signal protocol retry handshake
       if (sent?.key?.id) {
-        sentMessagesCache.set(sent.key.id, messageText);
-        // keep cache bounded to 500 messages
-        if (sentMessagesCache.size > 500) {
-          const oldestKey = sentMessagesCache.keys().next().value;
-          sentMessagesCache.delete(oldestKey);
-        }
+        cacheSentMessage(sent.key.id, sent.message || { conversation: messageText });
       }
 
       logActivity(item.source || 'MESSAGE', item.phone, item.message, 'DELIVERED');
@@ -125,25 +163,43 @@ async function connectToWhatsApp() {
     fs.mkdirSync(AUTH_DIR, { recursive: true });
   }
 
+  loadCacheFromDisk();
+
   const { state, saveCreds } = await useMultiFileAuthState(AUTH_DIR);
 
   sock = makeWASocket({
-    auth: state,
+    auth: {
+      creds: state.creds,
+      keys: makeCacheableSignalKeyStore(state.keys, pino({ level: 'silent' }))
+    },
     logger: pino({ level: 'silent' }),
     printQRInTerminal: true,
-    browser: ['DentB Clinical OS', 'Chrome', '1.0.0'],
+    browser: ['DentB Clinical OS', 'Chrome', '120.0.0.0'],
     syncFullHistory: false,
     markOnlineOnConnect: true,
     // E2EE retry callback: immediately provides key & content when recipient requests re-encryption
     getMessage: async (key) => {
       if (key?.id && sentMessagesCache.has(key.id)) {
-        return { conversation: sentMessagesCache.get(key.id) };
+        const item = sentMessagesCache.get(key.id);
+        if (typeof item === 'object' && item !== null) {
+          return item;
+        }
+        return { conversation: String(item) };
       }
-      return { conversation: 'Hello from DentB Dental Clinic!' };
+      return { conversation: 'DentB Dental Clinic Notification' };
     }
   });
 
   sock.ev.on('creds.update', saveCreds);
+
+  // Listen to incoming & outgoing messages to keep retry cache populated
+  sock.ev.on('messages.upsert', async ({ messages }) => {
+    for (const msg of messages) {
+      if (msg.key?.id && msg.message) {
+        cacheSentMessage(msg.key.id, msg.message);
+      }
+    }
+  });
 
   sock.ev.on('connection.update', async (update) => {
     const { connection, lastDisconnect, qr } = update;

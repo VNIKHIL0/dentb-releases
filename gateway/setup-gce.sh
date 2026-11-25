@@ -61,9 +61,13 @@ if [ -f "${SCRIPT_DIR}/server.js" ] && [ -f "${SCRIPT_DIR}/Dockerfile" ]; then
 else
   echo -e "${CYAN}Fetching latest DentB Gateway code from GitHub...${NC}"
   TMP_REPO="/tmp/dentb_clone_$(date +%s)"
-  git clone --depth 1 https://github.com/VNIKHIL0/dentb-releases.git "${TMP_REPO}" > /dev/null 2>&1
+  git clone --depth 1 https://github.com/VNIKHIL0/dentb.git "${TMP_REPO}" 2>/dev/null || git clone --depth 1 https://github.com/VNIKHIL0/dentb-releases.git "${TMP_REPO}" > /dev/null 2>&1
   cp -r "${TMP_REPO}/gateway/"* "${INSTALL_DIR}/"
   rm -rf "${TMP_REPO}"
+fi
+
+if [ -d "${INSTALL_DIR}/auth_session" ] && [ "$(ls -A "${INSTALL_DIR}/auth_session" 2>/dev/null)" ]; then
+  echo -e "${GREEN}✓ Existing WhatsApp session found in auth_session: Preserving login (No QR re-scan needed!)${NC}"
 fi
 
 echo -e "${CYAN}[3/5] Configuring firewall rules (Ports 5055 & 80)...${NC}"
@@ -74,7 +78,8 @@ fi
 
 echo -e "${CYAN}[4/5] Building and launching Docker container (Always-On)...${NC}"
 docker compose down > /dev/null 2>&1 || true
-docker compose up -d --build
+docker compose build --no-cache
+docker compose up -d
 
 echo -e "${CYAN}[5/5] Detecting VM Public IP...${NC}"
 # Try GCP internal metadata server first (fastest on GCE)
