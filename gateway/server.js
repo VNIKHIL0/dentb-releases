@@ -54,6 +54,10 @@ function logActivity(type, recipient, message, status, error = null) {
   return entry;
 }
 
+// Cache of sent messages for End-to-End Encryption (E2EE) session key retry handshake
+// Resolves WhatsApp's "Waiting for this message. This may take a while."
+const sentMessagesCache = new Map();
+
 function sanitizeJid(phone) {
   let cleaned = String(phone).replace(/[^0-9]/g, '');
   while (cleaned.startsWith('0')) {
@@ -87,9 +91,20 @@ async function processMessageQueue() {
 
     try {
       const jid = sanitizeJid(item.phone);
-      const sent = await sock.sendMessage(jid, { text: String(item.message).trim() });
+      const messageText = String(item.message).trim();
+      const sent = await sock.sendMessage(jid, { text: messageText });
       lastDispatchedTimestamp = Date.now();
       totalMessagesProcessed++;
+
+      // Cache message for E2EE Signal protocol retry handshake (prevents "Waiting for this message")
+      if (sent?.key?.id) {
+        sentMessagesCache.set(sent.key.id, messageText);
+        // keep cache bounded to 500 messages
+        if (sentMessagesCache.size > 500) {
+          const oldestKey = sentMessagesCache.keys().next().value;
+          sentMessagesCache.delete(oldestKey);
+        }
+      }
 
       logActivity(item.source || 'MESSAGE', item.phone, item.message, 'DELIVERED');
       console.log(`DentB Gateway [${item.id}]: Dispatched to ${item.phone} (Queue size: ${messageQueue.length - 1})`);
@@ -116,7 +131,16 @@ async function connectToWhatsApp() {
     auth: state,
     logger: pino({ level: 'silent' }),
     printQRInTerminal: true,
-    browser: ['DentB Clinical OS', 'Chrome', '1.0.0']
+    browser: ['DentB Clinical OS', 'Chrome', '1.0.0'],
+    syncFullHistory: false,
+    markOnlineOnConnect: true,
+    // E2EE retry callback: immediately provides key & content when recipient requests re-encryption
+    getMessage: async (key) => {
+      if (key?.id && sentMessagesCache.has(key.id)) {
+        return { conversation: sentMessagesCache.get(key.id) };
+      }
+      return { conversation: 'Hello from DentB Dental Clinic!' };
+    }
   });
 
   sock.ev.on('creds.update', saveCreds);
