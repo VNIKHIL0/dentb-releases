@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/VNIKHIL0/dentb-releases/releases/latest"><img src="https://img.shields.io/badge/Release-v1.1.1%20Stable-10b981?style=for-the-badge&logo=github&logoColor=white" alt="Release"></a>
+  <a href="https://github.com/VNIKHIL0/dentb-releases/releases/latest"><img src="https://img.shields.io/badge/Release-v1.1.2%20Stable-10b981?style=for-the-badge&logo=github&logoColor=white" alt="Release"></a>
   <a href="#-android-installation"><img src="https://img.shields.io/badge/Android-8.0%2B%20(Direct%20APK)-34d399?style=for-the-badge&logo=android&logoColor=white" alt="Android"></a>
   <a href="#-windows-installation"><img src="https://img.shields.io/badge/Windows-10%20%2F%2011%20(x64%20ZIP)-0ea5e9?style=for-the-badge&logo=windows&logoColor=white" alt="Windows"></a>
   <img src="https://img.shields.io/badge/Security-HIPAA%20%26%20DPDP-818cf8?style=for-the-badge&logo=shield&logoColor=white" alt="Security">
@@ -13,12 +13,12 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/VNIKHIL0/dentb-releases/releases/download/v1.1.1/DentB-Android-v1.1.1.apk">
-    <img src="https://img.shields.io/badge/⬇️%20Download%20APK%20(88.1%20MB)-Android%20Mobile%20%26%20Tablet-2e7d32?style=for-the-badge&logo=android&logoColor=white" height="42">
+  <a href="https://github.com/VNIKHIL0/dentb-releases/releases/download/v1.1.2/DentB-Android-v1.1.2.apk">
+    <img src="https://img.shields.io/badge/⬇️%20Download%20APK%20(92.4%20MB)-Android%20Mobile%20%26%20Tablet-2e7d32?style=for-the-badge&logo=android&logoColor=white" height="42">
   </a>
   &nbsp;&nbsp;
-  <a href="https://github.com/VNIKHIL0/dentb-releases/releases/download/v1.1.1/DentB-Windows-x64.zip">
-    <img src="https://img.shields.io/badge/⬇️%20Download%20ZIP%20(26.8%20MB)-Windows%2010%20%2F%2011%20(x64)-0284c7?style=for-the-badge&logo=windows&logoColor=white" height="42">
+  <a href="https://github.com/VNIKHIL0/dentb-releases/releases/download/v1.1.2/DentB-Windows-x64.zip">
+    <img src="https://img.shields.io/badge/⬇️%20Download%20ZIP%20(28.7%20MB)-Windows%2010%20%2F%2011%20(x64)-0284c7?style=for-the-badge&logo=windows&logoColor=white" height="42">
   </a>
   &nbsp;&nbsp;
   <a href="https://dentb-landingpage.vnikhilpatil.workers.dev" target="_blank" rel="noopener noreferrer">
@@ -35,10 +35,10 @@
 
 | Platform | Target Architecture | Package Type | Package Size | 1-Click Direct Download | Security Check |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Android** | `arm64-v8a`, `armeabi-v7a`, `x86_64` | Standalone `.apk` | **88.1 MB** | [⬇️ **Download APK (Direct)**](https://github.com/VNIKHIL0/dentb-releases/releases/download/v1.1.1/DentB-Android-v1.1.1.apk) | [Verified SHA-256](#-package-integrity--checksums) |
-| **Windows** | `x86_64` (64-bit Windows 10/11) | Portable `.zip` (`DentB.exe`) | **26.8 MB** | [⬇️ **Download ZIP (Direct)**](https://github.com/VNIKHIL0/dentb-releases/releases/download/v1.1.1/DentB-Windows-x64.zip) | [Verified SHA-256](#-package-integrity--checksums) |
+| **Android** | `arm64-v8a`, `armeabi-v7a`, `x86_64` | Standalone `.apk` | **92.4 MB** | [⬇️ **Download APK (Direct)**](https://github.com/VNIKHIL0/dentb-releases/releases/download/v1.1.2/DentB-Android-v1.1.2.apk) | [Verified SHA-256](#-package-integrity--checksums) |
+| **Windows** | `x86_64` (64-bit Windows 10/11) | Portable `.zip` (`DentB.exe`) | **28.7 MB** | [⬇️ **Download ZIP (Direct)**](https://github.com/VNIKHIL0/dentb-releases/releases/download/v1.1.2/DentB-Windows-x64.zip) | [Verified SHA-256](#-package-integrity--checksums) |
 
-👉 **Release Hub on GitHub:** [**DentB Production Release v1.1.1**](https://github.com/VNIKHIL0/dentb-releases/releases/tag/v1.1.1)
+👉 **Release Hub on GitHub:** [**DentB Production Release v1.1.2**](https://github.com/VNIKHIL0/dentb-releases/releases/tag/v1.1.2)
 
 ---
 
